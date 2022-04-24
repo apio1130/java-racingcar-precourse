@@ -30,4 +30,33 @@ class CarTest {
         ).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 자동차_전진_확인() {
+        Car car = new Car("모닝");
+        assertThat(car.getDrivingDistance().getDistance()).isZero();
+        car.move(4);
+        assertThat(car.getDrivingDistance().getDistance()).isEqualTo(1);
+    }
+
+    @Test
+    void 자동차_정지_확인() {
+        Car car = new Car("모닝");
+        assertThat(car.getDrivingDistance().getDistance()).isZero();
+        car.move(3);
+        assertThat(car.getDrivingDistance().getDistance()).isZero();
+    }
+
+    @Test
+    void 자동차_전진_정지_예외값_확인() {
+        Car car = new Car("모닝");
+
+        assertThatThrownBy(() -> {
+            car.move(-1);
+        }).isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() -> {
+            car.move(10);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
