@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import racingcar.model.collection.CarGroups;
 
 class CarTest {
 
@@ -62,14 +63,14 @@ class CarTest {
     @Test
     void 자동차_다건_생성_확인() {
         String carNames = "자동차1,자동차2,자동차3";
-        Cars cars = new Cars(carNames);
+        CarGroups cars = new CarGroups(carNames);
         assertThat(cars.getCars()).hasSize(3);
     }
 
     @Test
     void 자동차_다건_생성_확인_최소() {
         String carNames = "자동차1";
-        Cars cars = new Cars(carNames);
+        CarGroups cars = new CarGroups(carNames);
         assertThat(cars.getCars()).hasSize(1);
     }
 
