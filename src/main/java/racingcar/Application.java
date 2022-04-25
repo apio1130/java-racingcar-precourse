@@ -7,12 +7,16 @@ import racingcar.controller.RacingCarGame;
 public class Application {
     public static void main(String[] args) {
         RacingCarGame racingCarGame = new RacingCarGame();
-        System.out.println(GameMessage.CAR_NAME_REQUEST_MESSAGE);
-        String carNames = Console.readLine();
-        racingCarGame.setCarGroups(carNames);
-        System.out.println(GameMessage.CAR_TRY_COUNT_REQUEST_MESSAGE);
-        String tryCount = Console.readLine();
-        racingCarGame.setTryCount(tryCount);
-        racingCarGame.play();
+        try {
+            System.out.println(GameMessage.CAR_NAME_REQUEST_MESSAGE);
+            String carNames = Console.readLine();
+            racingCarGame.setCarGroups(carNames);
+            System.out.println(GameMessage.CAR_TRY_COUNT_REQUEST_MESSAGE);
+            String tryCount = Console.readLine();
+            racingCarGame.setTryCount(tryCount);
+            racingCarGame.play();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
