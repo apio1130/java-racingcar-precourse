@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.constant.ErrorMessage;
+
 public class Car {
 
     private String name;
@@ -26,10 +28,10 @@ public class Car {
 
     private void validateName(String name) {
         if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("이름에 대한 값이 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.NOT_CREATION_CAR_NAME_MESSAGE);
         }
         if (name.length() > 5) {
-            throw new IllegalArgumentException("이름은 5글자를 초과할 수 없습니다");
+            throw new IllegalArgumentException(ErrorMessage.NOT_VALID_CAR_NAME_MESSAGE);
         }
     }
 
@@ -46,7 +48,7 @@ public class Car {
 
     private void validateMoveNumber(int randomNumber) {
         if (randomNumber > 9 || randomNumber < 0) {
-            throw new IllegalArgumentException("유효하지 않은 숫자 값입니다.");
+            throw new IllegalArgumentException(ErrorMessage.NOT_VAILD_NUMBER_MESSAGE);
         }
     }
 
